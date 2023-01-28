@@ -4,6 +4,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
 
 @ConstructorBinding
+//relacionado con lo que hay en el generalconfiguration.java
+//osea @EnableConfigurationProperties(UserPojo.class)
 @ConfigurationProperties(prefix= "user")
 public class UserPojo {
     private String email;

@@ -17,6 +17,7 @@ import java.util.Optional;
 public interface UserRepository extends PagingAndSortingRepository<User,Long> {
 
     @Query("Select u from User u Where u.email=?1 ")
+    //optiona hace uso mejor de los null
     Optional<User> findByUserEmail(String email);
 
     @Query("Select u from User u where u.name like ?1%")
@@ -40,6 +41,7 @@ public interface UserRepository extends PagingAndSortingRepository<User,Long> {
             " from User u " +
             " where u.birthDate=:parametroFecha " +
             " and u.email=:parametroEmail ")
+    //los named parameters utilizan clases dto
     Optional<UserDto> getAllBirthDateAndEmail(@Param("parametroFecha") LocalDate date,
                                               @Param("parametroEmail") String email);
 

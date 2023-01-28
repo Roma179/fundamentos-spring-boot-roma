@@ -14,6 +14,8 @@ import javax.sql.DataSource;
 
 @Configuration
 @PropertySource("classpath:connection.properties")
+//esta madre va relacionada con el userpojo para que se puedan utilizar sus propiedads
+//osea (@ConfigurationProperties(prefix= "user"))
 @EnableConfigurationProperties(UserPojo.class)
 public class GeneralConfiguration {
     @Value("${value.name}")

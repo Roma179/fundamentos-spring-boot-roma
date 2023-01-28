@@ -22,6 +22,7 @@ public class User {
     @Column(length = 50)
     private LocalDate birthDate;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    //esto es para que no caiga en un bucle cuando haya una relacion
     @JsonManagedReference
     private List<Post> posts = new ArrayList<>();
 

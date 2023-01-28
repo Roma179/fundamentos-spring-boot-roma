@@ -33,7 +33,10 @@ public class FundamentosApplication implements CommandLineRunner {
 	private UserRepository userRepository;
 
 	private UserService userService;
-	public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependency componentDependency, MyBean myBean,MyBeanWithDependency myBeanWithDependency,MyBeanWithProperties myBeanWithProperties,UserPojo userPojo,UserRepository userRepository,
+	public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependency componentDependency,
+								  MyBean myBean,MyBeanWithDependency myBeanWithDependency,
+								  MyBeanWithProperties myBeanWithProperties,UserPojo userPojo,
+								  UserRepository userRepository,
 								  UserService userService){
 		this.componentDependency = componentDependency;
 		this.myBean = myBean;
@@ -76,7 +79,7 @@ public class FundamentosApplication implements CommandLineRunner {
 	}
 
 	private void getInformationJpqlFromUser(){
-		/*LOGGER.info("Usuario con el metodo findByUserEmail" +
+		LOGGER.info("Usuario con el metodo findByUserEmail" +
 				userRepository.findByUserEmail("rutilio@gmail.com")
 				.orElseThrow(()-> new RuntimeException("No se encontro el usuario")));
 
@@ -95,7 +98,7 @@ public class FundamentosApplication implements CommandLineRunner {
 
 		userRepository.findByNameOrEmail(null,"juanroma@gmail.com")
 				.stream()
-				.forEach(user-> LOGGER.info("Usuario findByNameOrEmail " +user));*/
+				.forEach(user-> LOGGER.info("Usuario findByNameOrEmail " +user));
 		userRepository.findByBirthDateBetween(LocalDate.of(2008,1,1),LocalDate.of(2021,1,1))
 				.stream()
 				.forEach(user -> LOGGER.info("Usuario con intervalo de fechas "+user));
